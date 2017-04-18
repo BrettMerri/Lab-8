@@ -4,3 +4,6 @@ C:\Users\Brett\Desktop\Projects\Labs\Lab 8\Lab 8\bin\Debug\Lab 8.pdb
 C:\Users\Brett\Desktop\Projects\Labs\Lab 8\Lab 8\obj\Debug\Lab 8.csprojResolveAssemblyReference.cache
 C:\Users\Brett\Desktop\Projects\Labs\Lab 8\Lab 8\obj\Debug\Lab 8.exe
 C:\Users\Brett\Desktop\Projects\Labs\Lab 8\Lab 8\obj\Debug\Lab 8.pdb
+C:\Users\abe\Documents\Visual Studio 2015\Projects\Lab-8\Lab 8\bin\Debug\Lab 8.exe.config
+C:\Users\abe\Documents\Visual Studio 2015\Projects\Lab-8\Lab 8\obj\Debug\Lab 8.exe
+C:\Users\abe\Documents\Visual Studio 2015\Projects\Lab-8\Lab 8\obj\Debug\Lab 8.pdb
