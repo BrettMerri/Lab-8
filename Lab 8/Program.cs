@@ -10,10 +10,19 @@ namespace Lab_8
     {
         static void Main(string[] args)
         {
+            bool loop = true;
+
+            Console.Title = "Batting Average Calculator";
             Console.WriteLine("Welcome to Batting Average Calculator!");
-            Console.Write("Enter number of times at bat: ");
-            int[] TimesBatting = new int[GetValidInteger(1, 25)];
-            GetBattingResults(TimesBatting);
+
+            while (loop)
+            {
+                Console.Write("Enter number of times at bat: ");
+                int[] TimesBatting = new int[GetValidInteger(1, 25)];
+                GetBattingResults(TimesBatting);
+                if (!ContinueApp())
+                    loop = false;
+            }
         }
 
         public static int GetValidInteger(int Min, int Max)
@@ -61,6 +70,31 @@ namespace Lab_8
             Console.WriteLine($"Batting Average: {BattingAverage}");
             Console.WriteLine($"Slugging Percentage: {SluggingPercent}");
         }
+        public static bool ContinueApp()
+        {
+            while (true)
+            {
+                Console.Write("Another batter? (y/n): ");
+                string input = Console.ReadLine().ToLower();
+                if (input == "y")
+                {
+                    Console.WriteLine();
+                    return true;
+                }
+                else if (input == "n")
+                {
+                    Console.WriteLine("\nByebye!");
+                    return false;
+                }
+                else
+                {
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.WriteLine("Error: Input not y or n.\n");
+                    Console.ForegroundColor = ConsoleColor.Gray;
+                }
+            }
+        }
+
     }
 }
 //SP = SUM/Number of Atbats
