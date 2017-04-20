@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Lab_8
 {
@@ -55,7 +52,7 @@ namespace Lab_8
         }
         public static void GetBattingResults(int TimesBatting)
         {
-            int[] BattingResults = new int[TimesBatting]; //Create a BattingResults array of length TimesBatting
+            List<int> BattingResults = new List<int>(TimesBatting); //Create a BattingResults list of length TimesBatting
 
             int AtBatsNotZero = 0; //Initialize int AtBatsNotZero to zero.
             int Sum = 0; //Initialize int Sum to zero.
@@ -66,21 +63,20 @@ namespace Lab_8
             {
                 Console.Write($"Result for at-bat {i + 1}: ");
 
-                BattingResults[i] = GetValidInteger(0, 4); //Gets a valid integer between 0 and 4 and assigns it to BattingResults[i]
+                BattingResults.Add(GetValidInteger(0, 4)); //Gets a valid integer between 0 and 4 and adds it to the BattingResults list
 
-                if (BattingResults[i] != 0) //If user input is zero, increment AtBatsNotZero
+                if (BattingResults[i] != 0) //If user input is zero
                 {
-                    AtBatsNotZero++; 
+                    AtBatsNotZero++; //Increment AtBatsNotZero
+                    Sum += BattingResults[i]; //Add BattingResults[i] value to Sum to get the sum of all batting results. 
                 }
-
-                Sum += BattingResults[i]; //Add BattingResults[i] value to Sum to get the sum of all batting results.
+                
             }
 
-            //Cast double to AtBatsNotZero and Sum so the result is demimal numbers.
+            //Cast double to AtBatsNotZero and Sum so the result is a double instead of an integer.
             //Math.Round numbers to three decimal places
-            double BattingAverage = Math.Round(((double)AtBatsNotZero / BattingResults.Length), 3);
-            double SluggingPercent = Math.Round(((double)Sum / BattingResults.Length), 3);
-
+            double BattingAverage = Math.Round(((double)AtBatsNotZero / BattingResults.Count), 3); //BattingAverage = number of Atbats not zero / number of Atbats
+            double SluggingPercent = Math.Round(((double)Sum / BattingResults.Count), 3); //SluggingPercent = SUM/Number of Atbats
 
             Console.WriteLine($"Batting Average: {BattingAverage}");
             Console.WriteLine($"Slugging Percentage: {SluggingPercent}");
@@ -111,5 +107,3 @@ namespace Lab_8
         }
     }
 }
-//SP = SUM/Number of Atbats
-//BA = number of Atbats not zero / number of Atbats
